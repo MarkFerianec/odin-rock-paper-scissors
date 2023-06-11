@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let number = Math.floor(Math.random() * 3) + 1;
     switch (number) {
@@ -15,30 +18,107 @@ function playRound(playerSelection, computerSelection) {
     let computerSelectionLowerCase = computerSelection.toLowerCase();
 
     if (playerSelectionLowerCase == 'rock' && computerSelectionLowerCase == 'scissors') {
-        return "You win! Rock beats Scissors";
+        playerScore++;
+        return "Win";
     }
     else if (playerSelectionLowerCase == 'rock' && computerSelectionLowerCase == 'paper') {
-        return "You lose! Paper beats Rock";
+        computerScore++;
+        return "Loss";
     }
     else if (playerSelectionLowerCase == 'paper' && computerSelectionLowerCase == 'rock') {
-        return "You win! Paper beats Rock";
+        playerScore++;
+        return "Win";
     }
     else if (playerSelectionLowerCase == 'paper' && computerSelectionLowerCase == 'scissors') {
-        return "You lose! Scissors beats Paper";
+        computerScore++;
+        return "Loss";
     }
     else if (playerSelectionLowerCase == 'scissors' && computerSelectionLowerCase == 'paper') {
-        return "You win! Scissors beats Paper";
+        playerScore++;
+        return "Win";
     }
     else if (playerSelectionLowerCase == 'scissors' && computerSelectionLowerCase == 'rock') {
-        return "You lose! Rock beats Scissors";
+        computerScore++;
+        return "Loss";
     }
     else {
         return "Tie";
     }
 }
 
-const playerSelection = "rock";
-// console.log("Player selection is " + playerSelection);
-const computerSelection = getComputerChoice();
-// console.log("Computer selection is " + computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    // let playerScore = 0;
+    // let computerScore = 0;
+
+    // First game
+    let playerSelection = prompt("Enter a choice");
+    console.log("You picked " + playerSelection);
+
+    let computerSelection = getComputerChoice();
+    console.log("Computer picked " + computerSelection);
+
+    console.log(playRound(playerSelection, computerSelection));
+    console.log("Player score: " + playerScore);
+    console.log("Computer score: " + computerScore);
+
+    // Second game
+    playerSelection = prompt("Enter a choice");
+    console.log("You picked " + playerSelection);
+
+    computerSelection = getComputerChoice();
+    console.log("Computer picked " + computerSelection);
+
+    console.log(playRound(playerSelection, computerSelection));
+    console.log("Player score: " + playerScore);
+    console.log("Computer score: " + computerScore);
+
+    // Third game
+    playerSelection = prompt("Enter a choice");
+    console.log("You picked " + playerSelection);
+
+    computerSelection = getComputerChoice();
+    console.log("Computer picked " + computerSelection);
+
+    console.log(playRound(playerSelection, computerSelection));
+    console.log("Player score: " + playerScore);
+    console.log("Computer score: " + computerScore);
+
+    // Fourth game
+    playerSelection = prompt("Enter a choice");
+    console.log("You picked " + playerSelection);
+
+    computerSelection = getComputerChoice();
+    console.log("Computer picked " + computerSelection);
+
+    console.log(playRound(playerSelection, computerSelection));
+    console.log("Player score: " + playerScore);
+    console.log("Computer score: " + computerScore);
+
+    // Fifth game
+    playerSelection = prompt("Enter a choice");
+    console.log("You picked " + playerSelection);
+
+    computerSelection = getComputerChoice();
+    console.log("Computer picked " + computerSelection);
+
+    console.log(playRound(playerSelection, computerSelection));
+    console.log("Player score: " + playerScore);
+    console.log("Computer score: " + computerScore);
+
+    // Winner, Loser or Tie:
+
+    if (playerScore > computerScore) {
+        console.log("Player wins");
+    }
+    else if (playerScore < computerScore) {
+        console.log("Computer wins");
+    }
+    else {
+        console.log("Tie");
+    }
+
+    // Reset scores by resetting global variables:
+
+    playerScore = 0;
+    computerScore = 0;
+}
